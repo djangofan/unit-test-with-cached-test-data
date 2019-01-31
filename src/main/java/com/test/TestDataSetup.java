@@ -3,9 +3,7 @@ package com.test;
 import com.opencsv.CSVReader;
 import com.opencsv.CSVReaderBuilder;
 import com.opencsv.CSVWriter;
-import com.opencsv.bean.ColumnPositionMappingStrategy;
-import com.opencsv.bean.StatefulBeanToCsv;
-import com.opencsv.bean.StatefulBeanToCsvBuilder;
+import com.opencsv.bean.*;
 import com.opencsv.exceptions.CsvDataTypeMismatchException;
 import com.opencsv.exceptions.CsvRequiredFieldEmptyException;
 
@@ -60,6 +58,13 @@ public class TestDataSetup {
                 Reader reader = Files.newBufferedReader(from);
                 CSVReader csvReader = new CSVReaderBuilder(reader).build()
         ) {
+            //HeaderColumnNameMappingStrategy<CachedCSVEvent> castleStrategy = new HeaderColumnNameMappingStrategy<>();
+            //castleStrategy.setType(CachedCSVEvent.class);
+            //CsvToBean csvToBean = new CsvToBeanBuilder(reader)
+            //        .withType(CachedCSVEvent.class)
+            //        .withMappingStrategy(castleStrategy)
+            //        .withIgnoreLeadingWhiteSpace(true)
+            //        .build();
             loadedRecords = new ArrayList<>();
             List<String[]> rawRecords = csvReader.readAll();
             for (String[] record : rawRecords) {
