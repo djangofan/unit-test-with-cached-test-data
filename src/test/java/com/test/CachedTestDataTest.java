@@ -16,6 +16,8 @@ public class CachedTestDataTest implements ITestData {
 
     @BeforeClass
     public void setupClass() {
+        testConfiguraton = new Configuration();
+
         XmlTest xmlTest = null;
         String[] myEventArray = {"event1","event2"};
         setupData(myEventArray, xmlTest);
@@ -34,14 +36,14 @@ public class CachedTestDataTest implements ITestData {
     }
 
     @Override
-    public void setupData(Object[] events, XmlTest xmlTest) {
-        if (!Objects.isNull(xmlTest)) {
+    public void setupData(String[] events, XmlTest xmlTest) {
+        if (Objects.isNull(xmlTest)) {
+            loadedRecords = testConfiguraton.getCache();
+            for (CachedCSVEvent event : loadedRecords) {
+                System.out.println(event.toString());
+            }
+        } else {
             // assume context is being ran from a testng xml file and do whatever
-        }
-        testConfiguraton = new Configuration();
-        loadedRecords = testConfiguraton.getCache();
-        for (CachedCSVEvent event : loadedRecords) {
-            System.out.println(event.toString());
         }
     }
 
