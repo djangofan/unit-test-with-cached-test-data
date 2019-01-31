@@ -1,5 +1,5 @@
-NAME,LOCATION,ID,CREATED
-Event1,Location1,StubId1,2016-11-16T06:43:19.769
-Event2,Location2,StubId2,2016-11-16T06:43:19.769
-Event3,Location3,StubId3,2016-11-16T06:43:19.769
-Event4,Location4,StubId4,2016-11-16T06:43:19.769
+"name","location","id","created"
+Event1,Location1,StubId1,2019-01-31T20:39:45.223Z
+Event2,Location2,StubId2,2019-01-31T20:39:45.223Z
+Event3,Location3,StubId3,2019-01-31T20:39:45.223Z
+Event4,Location4,StubId4,2019-01-31T20:39:45.223Z

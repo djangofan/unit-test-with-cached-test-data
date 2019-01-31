@@ -6,6 +6,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import org.testng.xml.XmlTest;
 
+import java.time.Instant;
 import java.util.List;
 import java.util.Objects;
 
@@ -25,8 +26,8 @@ public class TestDataTestSetup implements ITestData {
 
     @Test
     public void testCachedTestData() {
-        loadedRecords.add(new CachedCSVEvent("2016-11-16T06:43:19.769", "Location5", "Name5", "id5"));
-        loadedRecords.add(new CachedCSVEvent("2016-11-16T06:43:19.769", "Location6", "Name6", "id6n"));
+        loadedRecords.add(new CachedCSVEvent("Event5", "Location5", "StubId5", Instant.now().toString()));
+        loadedRecords.add(new CachedCSVEvent("Event6", "Location6", "StubId6", Instant.now().toString()));
         Assert.assertTrue(true);
     }
 

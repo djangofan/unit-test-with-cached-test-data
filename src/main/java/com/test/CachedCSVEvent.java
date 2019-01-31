@@ -16,7 +16,7 @@ public class CachedCSVEvent {
     @CsvBindByName(required = true)
     private String created;
 
-    public CachedCSVEvent(String created, String location, String name, String id) {
+    public CachedCSVEvent(String name, String location, String id, String created) {
         this.name = name;
         this.location = location;
         this.id = id;

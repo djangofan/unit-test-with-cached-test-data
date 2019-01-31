@@ -26,7 +26,11 @@ public class TestDataSetup {
     private List<CachedCSVEvent> loadedRecords;
     private StatefulBeanToCsv<CachedCSVEvent> beanToCsv;
 
+    private ColumnPositionMappingStrategy<CachedCSVEvent> beanStrategy = new ColumnPositionMappingStrategy<>();
+
     TestDataSetup() {
+        beanStrategy.setType(CachedCSVEvent.class);
+        beanStrategy.setColumnMapping(new String[]{"name", "location", "id", "created"});
         if (loadedRecords == null) {
             try {
                 loadedRecords = loadCache(SHARED_CACHE);
@@ -51,7 +55,6 @@ public class TestDataSetup {
         try (
                 Reader reader = Files.newBufferedReader(from);
                 CSVReader csvReader = new CSVReaderBuilder(reader)
-                        .withSkipLines(1)
                         .build()
         ) {
             loadedRecords = new ArrayList<>();
@@ -68,10 +71,6 @@ public class TestDataSetup {
         try (
                 Writer writer = Files.newBufferedWriter(SHARED_CACHE);
         ) {
-            ColumnPositionMappingStrategy<CachedCSVEvent> beanStrategy = new ColumnPositionMappingStrategy<>();
-            beanStrategy.setType(CachedCSVEvent.class);
-            beanStrategy.setColumnMapping(new String[]{"name", "location", "id", "created"});
-
             beanToCsv = new StatefulBeanToCsvBuilder(writer)
                     .withMappingStrategy(beanStrategy)
                     .withQuotechar(CSVWriter.NO_QUOTE_CHARACTER)
