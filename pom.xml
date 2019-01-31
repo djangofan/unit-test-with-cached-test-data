@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.thor</groupId>
-    <artifactId>java-read-write-csv-file</artifactId>
+    <artifactId>unit-test-with-cached-test-data</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <dependencies>

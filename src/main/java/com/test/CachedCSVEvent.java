@@ -1,3 +1,5 @@
+package com.test;
+
 import com.opencsv.bean.CsvBindByName;
 
 public class CachedCSVEvent {
@@ -12,6 +14,13 @@ public class CachedCSVEvent {
 
     @CsvBindByName
     private String country;
+
+    public CachedCSVEvent(String country, String email, String name, String phoneNo) {
+        this.name = name;
+        this.email = email;
+        this.phoneNo = phoneNo;
+        this.country = country;
+    }
 
     public String getName() {
         return name;
@@ -43,5 +52,10 @@ public class CachedCSVEvent {
 
     public void setCountry(String country) {
         this.country = country;
+    }
+
+    @Override
+    public String toString() {
+        return String.join(",", name, email, phoneNo, country);
     }
 }
