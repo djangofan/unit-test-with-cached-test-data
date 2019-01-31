@@ -15,6 +15,10 @@ import java.io.Writer;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.time.Duration;
+import java.time.Instant;
+import java.time.Period;
+import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -54,14 +58,22 @@ public class TestDataSetup {
     public List<CachedCSVEvent> loadCache(Path from) throws IOException {
         try (
                 Reader reader = Files.newBufferedReader(from);
-                CSVReader csvReader = new CSVReaderBuilder(reader)
-                        .build()
+                CSVReader csvReader = new CSVReaderBuilder(reader).build()
         ) {
             loadedRecords = new ArrayList<>();
             List<String[]> rawRecords = csvReader.readAll();
             for (String[] record : rawRecords) {
-                CachedCSVEvent row = new CachedCSVEvent(record[0], record[1], record[2], record[3]);
-                loadedRecords.add(row);
+                Instant timeStamp = Instant.now().minus(Period.ofDays(2));
+                try {
+                    timeStamp = Instant.parse(record[3]);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                CachedCSVEvent row = new CachedCSVEvent(record[0], record[1], record[2], timeStamp.toString());
+                Duration between = Duration.between(timeStamp, Instant.now());
+                if (between.getSeconds() < Duration.ofDays(1).getSeconds()) {
+                    loadedRecords.add(row);
+                }
             }
         }
         return loadedRecords;
