@@ -7,6 +7,7 @@ import org.testng.annotations.Test;
 import org.testng.xml.XmlTest;
 
 import java.util.List;
+import java.util.Objects;
 
 public class CachedTestDataTest implements ITestData {
 
@@ -34,6 +35,9 @@ public class CachedTestDataTest implements ITestData {
 
     @Override
     public void setupData(Object[] events, XmlTest xmlTest) {
+        if (!Objects.isNull(xmlTest)) {
+            // assume context is being ran from a testng xml file and do whatever
+        }
         testConfiguraton = new Configuration();
         loadedRecords = testConfiguraton.getCache();
         for (CachedCSVEvent event : loadedRecords) {
