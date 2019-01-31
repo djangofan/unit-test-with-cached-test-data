@@ -25,8 +25,8 @@ public class CachedTestDataTest implements ITestData {
 
     @Test
     public void testCachedTestData() {
-        loadedRecords.add(new CachedCSVEvent("Sundar Pichai ♥", "sundar.pichai@gmail.com", "+1-1111111111", "Pakistan"));
-        loadedRecords.add(new CachedCSVEvent("Satya Nadella", "satya.nadella@outlook.com", "+1-1111111112", "Pakistan"));
+        loadedRecords.add(new CachedCSVEvent("2016-11-16T06:43:19.769", "Location5", "Name5", "id5"));
+        loadedRecords.add(new CachedCSVEvent("2016-11-16T06:43:19.769", "Location6", "Name6", "id6n"));
         Assert.assertTrue(true);
     }
 

@@ -1,5 +1,5 @@
-NAME,EMAIL,PHONE,COUNTRY
-Rajeev Kumar Singh ♥,rajeevs@example.com,+91-9999999999,India
-Sachin Tendulkar,sachin@example.com,+91-9999999998,India
-Barak Obama,barak.obama@example.com,+1-1111111111,United States
-Donald Trump,donald.trump@example.com,+1-2222222222,United States
+NAME,LOCATION,EVENTID,CREATIONTIME
+Event1,Location1,StubId1,2016-11-16T06:43:19.769
+Event2,Location2,StubId2,2016-11-16T06:43:19.769
+Event3,Location3,StubId3,2016-11-16T06:43:19.769
+Event4,Location4,StubId4,2016-11-16T06:43:19.769

@@ -3,23 +3,24 @@ package com.test;
 import com.opencsv.bean.CsvBindByName;
 
 public class CachedCSVEvent {
+
     @CsvBindByName
     private String name;
 
-    @CsvBindByName(column = "email", required = true)
-    private String email;
+    @CsvBindByName(column = "location", required = true)
+    private String location;
 
-    @CsvBindByName(column = "phone")
-    private String phoneNo;
+    @CsvBindByName(column = "eventId")
+    private String eventId;
 
     @CsvBindByName
-    private String country;
+    private String creationTime;
 
-    public CachedCSVEvent(String country, String email, String name, String phoneNo) {
+    public CachedCSVEvent(String creationTime, String location, String name, String eventId) {
         this.name = name;
-        this.email = email;
-        this.phoneNo = phoneNo;
-        this.country = country;
+        this.location = location;
+        this.eventId = eventId;
+        this.creationTime = creationTime;
     }
 
     public String getName() {
@@ -30,32 +31,33 @@ public class CachedCSVEvent {
         this.name = name;
     }
 
-    public String getEmail() {
-        return email;
+    public String getLocation() {
+        return location;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setLocation(String location) {
+        this.location = location;
     }
 
-    public String getPhoneNo() {
-        return phoneNo;
+    public String getEventId() {
+        return eventId;
     }
 
-    public void setPhoneNo(String phoneNo) {
-        this.phoneNo = phoneNo;
+    public void setEventId(String eventId) {
+        this.eventId = eventId;
     }
 
-    public String getCountry() {
-        return country;
+    public String getCreationTime() {
+        return creationTime;
     }
 
-    public void setCountry(String country) {
-        this.country = country;
+    public void setCreationTime(String creationTime) {
+        this.creationTime = creationTime;
     }
 
     @Override
     public String toString() {
-        return String.join(",", name, email, phoneNo, country);
+        return "Event: " + String.join(",", name, location, eventId, creationTime);
     }
+
 }
