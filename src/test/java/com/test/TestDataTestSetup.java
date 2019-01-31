@@ -9,14 +9,14 @@ import org.testng.xml.XmlTest;
 import java.util.List;
 import java.util.Objects;
 
-public class CachedTestDataTest implements ITestData {
+public class TestDataTestSetup implements ITestData {
 
     public List<CachedCSVEvent> loadedRecords;
-    public Configuration testConfiguraton;
+    public TestDataSetup testConfiguraton;
 
     @BeforeClass
     public void setupClass() {
-        testConfiguraton = new Configuration();
+        testConfiguraton = new TestDataSetup();
 
         XmlTest xmlTest = null;
         String[] myEventArray = {"event1","event2"};

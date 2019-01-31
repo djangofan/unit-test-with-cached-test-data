@@ -4,23 +4,23 @@ import com.opencsv.bean.CsvBindByName;
 
 public class CachedCSVEvent {
 
-    @CsvBindByName
+    @CsvBindByName(required = true)
     private String name;
 
-    @CsvBindByName(column = "location", required = true)
+    @CsvBindByName(required = true)
     private String location;
 
-    @CsvBindByName(column = "eventId")
-    private String eventId;
+    @CsvBindByName(required = true)
+    private String id;
 
-    @CsvBindByName
-    private String creationTime;
+    @CsvBindByName(required = true)
+    private String created;
 
-    public CachedCSVEvent(String creationTime, String location, String name, String eventId) {
+    public CachedCSVEvent(String created, String location, String name, String id) {
         this.name = name;
         this.location = location;
-        this.eventId = eventId;
-        this.creationTime = creationTime;
+        this.id = id;
+        this.created = created;
     }
 
     public String getName() {
@@ -39,25 +39,25 @@ public class CachedCSVEvent {
         this.location = location;
     }
 
-    public String getEventId() {
-        return eventId;
+    public String getId() {
+        return id;
     }
 
-    public void setEventId(String eventId) {
-        this.eventId = eventId;
+    public void setId(String id) {
+        this.id = id;
     }
 
-    public String getCreationTime() {
-        return creationTime;
+    public String getCreated() {
+        return created;
     }
 
-    public void setCreationTime(String creationTime) {
-        this.creationTime = creationTime;
+    public void setCreated(String created) {
+        this.created = created;
     }
 
     @Override
     public String toString() {
-        return "Event: " + String.join(",", name, location, eventId, creationTime);
+        return "Event: " + String.join(",", name, location, id, created);
     }
 
 }
